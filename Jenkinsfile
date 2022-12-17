@@ -20,7 +20,7 @@ pipeline {
                 // deploy configs to DEV
                 echo 'deploy docker config files (DEV)'
                 sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/deploy_docker_compose_dev.yml --extra-vars repo="gatus"'
-                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/git-crypt.yml --extra-vars repo="gatus"'
+                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/git-crypt.yml --extra-vars repo="gatus"'
             }
         }
         // trigger portainer redeploy
@@ -41,7 +41,7 @@ pipeline {
                 // deploy configs to PRD
                 echo 'deploy docker config files (PRD)'
                 sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/deploy_docker_compose_prd.yml --extra-vars repo="gatus"'
-                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/git-crypt.yml --extra-vars repo="gatus"'
+                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/git-crypt.yml --extra-vars repo="gatus"'
             }
         }
         // trigger portainer redeploy
