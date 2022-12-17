@@ -6,5 +6,6 @@ services:
     ports:
       - "8081:8080"
     volumes:
-      - ./config:/config
-      - ./data:/data/
+      - /docker/docker-compose/gatus/config:/config
+      - /docker/docker-compose/gatus/data:/data/
+    restart: unless-stopped
