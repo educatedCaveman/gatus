@@ -27,7 +27,7 @@ git push origin $(git rev-parse --abbrev-ref HEAD)
 echo "done!"
 
 read -p "unlock again? (y/n): " unlk
-if [ $unlk == 'y'];
+if [ $unlk == "y" ];
 then
     echo "unlocking..."
     git-crypt unlock /home/drake/Documents/git_crypt_keys/gatus.gpg
