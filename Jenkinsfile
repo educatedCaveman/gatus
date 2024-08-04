@@ -17,9 +17,9 @@ pipeline {
             steps {
                 // deploy configs to DEV
                 echo 'deploy docker config files (DEV)'
-                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/deploy_docker_compose_pi.yml --extra-vars repo="gatus"'
+                sh 'ansible-playbook -i ${ANSIBLE_REPO}/hosts.ini ${ANSIBLE_REPO}/deploy/docker/deploy_docker_compose_pi.yml --extra-vars repo="gatus"'
                 echo 'decrypt repo'
-                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/git-crypt.yml --extra-vars repo="gatus" -l "dilithium"'
+                sh 'ansible-playbook -i ${ANSIBLE_REPO}/hosts.ini ${ANSIBLE_REPO}/deploy/git-crypt.yml --extra-vars repo="gatus" -l "dilithium"'
             }
         }
         // trigger portainer redeploy
